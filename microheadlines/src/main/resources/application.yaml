@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://localhost:3306/user_schedule_db
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath/mapper/*.xml
+  type-aliases-package: com.microheadlines.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl
+jwt:
+  secret: your-secret-key-should-be-at-least-32-characters-long #32字符至少
+  expiration: 1000*6  # 1天（毫秒）
+  refresh-expiration: 2592000000  # 30天（毫秒）
+  issuer: micro-headlines
